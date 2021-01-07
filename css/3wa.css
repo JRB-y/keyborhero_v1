@@ -1,0 +1,2149 @@
+/**********************
+ *   STYLES DE BASE   *
+ **********************/
+
+ul {
+	padding: 0;
+	list-style-type: none;
+}
+
+html {
+	font-size: 62.5%;
+}
+body {
+	
+	font-style: normal;
+	font-size: 1rem;
+	line-height: 1.6;
+	color: #354552;	
+	background-color: #f7f6fb;
+}
+
+h1 {
+	/*font-family: Arial, sans-serif;*/
+	font-weight: normal;
+	font-size: 3rem;
+}
+h2 {
+	font-size: 1.8rem;
+}
+h3 {
+	font-size: 1.6rem;
+}
+a:focus {
+	color: inherit;
+}
+
+
+/*****************
+ *   STRUCTURE   *
+ *****************/
+
+header:not(.header-cours) {
+	color: #fff;
+	text-align: center;
+	background-color: #ff8875;
+}
+
+main {
+	font-size: 1.25rem;
+}
+
+footer {
+	background-color: #fff;
+	color: #354552;
+	text-align: center;	
+}
+
+/**************
+ *   HEADER   *
+ **************/
+
+header.header-blue {
+	background-color: #354551;
+}
+
+header .logo {
+	outline: none;
+}
+header .logo img {
+	width: 130px;
+	margin: 11px 0;
+}
+nav ul {
+	margin: 0 0 5px;
+}
+nav li {
+	display: inline-block;
+}
+nav li a, .rappel-nav li a, nav p {
+	font-size: 1rem;
+	color: #fff; 
+	box-sizing: border-box;
+	line-height: 2.8;
+	transition: all 0.3s; 
+}
+nav li a, .rappel-nav li a {
+	display: inline-block;
+	padding: 0 1.5em;
+}
+nav li a:hover, nav li a:active, nav li a:focus {
+	color: #354552;
+	text-decoration: none;
+}
+body.home nav li a:hover, body.home nav li a:active, body.home nav li a:focus {
+	color: #ff8875;
+	text-decoration: none;
+}
+.rappel-nav li a {
+	text-transform: uppercase;
+	color: #354552;
+}
+.rappel-nav li a:hover, .rappel-nav li a:active, .rappel-nav li a:focus {
+	color: #ff8875;
+	text-decoration: none;
+}
+
+nav a.button {
+	margin: 0.5em 0 1em 1.2em;
+}
+.user-avatar {
+	width: 25px;
+	border-radius: 50%;
+}
+blockquote .user-avatar {
+	margin-bottom: 2px;
+	margin-right: 5px;
+}
+.non-connecte {
+	background-color: #7DCBEF;
+}
+.non-connecte div {
+	background-image:url(../img/pictogrammes/intermediaire_blason.png);
+	background-repeat: no-repeat;
+	background-position: 20px center;
+	background-size: 24px;
+	padding: 1em 20px 1em 55px;
+	font-size: 1.25rem;
+	text-align: left;
+}
+.introduction {
+	background-image: url(../img/bg/introduction.jpg);
+	background-size: cover;
+	background-position: center;
+	font-size: 1.5rem; 
+	padding: 4.5em 0;
+}
+.header-blue .introduction {
+	background: transparent;
+	padding-top: 2.5em;
+}
+.header-blue a:hover {
+	color: #ff8875;
+}
+.introduction .welcome h1 {
+	font-size: 2.8em;
+	letter-spacing: 0.075em;
+}
+.introduction .welcome p {
+	font-size: 1.2em;
+	letter-spacing: .005em;
+}
+.introduction .button {
+	margin-top: 0.5em;
+}
+.introduction .chevron {
+	position: absolute;
+	bottom: 1.5em;
+	left: 0; right: 0;
+	margin: auto;
+}
+
+/**************
+ *   FOOTER   *
+ **************/
+
+.rappel-nav {
+	margin: 2em 0;
+	display: none;
+}
+.social {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 0;
+}
+.social::before, .social::after {
+    content: '';
+    display: none;
+    position: absolute;
+    background-color: #FFF;
+    height: 1px;
+    left: 10px;
+    right: 10px;
+}
+/*.social::before {
+    top: 0;
+}
+.social::after {
+    bottom: 0;
+}*/
+.social li {
+    display: inline-block;
+    vertical-align: top;
+}
+.social a {
+    padding: 20px 5px;
+    display: inline-block;
+}
+.social a:hover {
+	text-decoration: none;
+}
+.social a i {
+    box-sizing: border-box;
+    padding-top: 1px;
+    width: 34px;
+    height: 34px;
+    line-height: 34px;
+    border-radius: 17px;
+    font-size: 17px;
+    display: block;
+    color: #fff;
+    background: #354552;
+    transition: background-color 0.3s;
+}
+.social a:hover i {
+	background-color: #ff8875;
+}
+footer a.chevron {
+	margin: 0.5em auto;
+	font-size: 1.5em;
+}
+
+
+/***************************
+ *   ELEMENTS RECURRENTS   *
+ ***************************/
+
+/* Boutons "cartouches" */
+.button, .button.button-filter-selected:hover {
+	display: inline-block;
+	color: #ff8875;
+	border: 0.1em solid #ff8875;
+	text-transform: none; 
+	border-radius: 1.3em;
+	line-height: 2.4;
+	padding: 0 2.8em;
+	transition: all 0.3s;
+	outline: none;
+}
+.button.not(.button-no-hover):hover {
+	background: #ff8875;
+	color: #fff;
+	text-decoration: none;
+}
+.button.button-filter-selected {
+	background-color: #fff;
+}
+.button.button-filter-unselected {
+	background-color: transparent;
+	color: #fff;
+	border-color: #fff;
+}
+.button.button-filter-unselected:hover {
+	color: #ff8875;
+	background-color: #fff;
+}
+.button.button-orange {
+	border: none;
+	line-height: 2.6;
+	color: white;
+	background-color: #ff8875;
+}
+.button.button-orange-v2 {
+	line-height: 2.4;
+	color: white;
+	background-color: #ff8875;
+}
+.button.button-orange:hover, .button.button-orange-v2:hover {
+	background-color: #fff;
+	color: #ff8875;
+}
+.button.button-cta, .button.button-submit, .button.button-next, .button.button-account {
+	border: none;
+	line-height: 2.6;
+	color: white;
+	background-color: #64c1ec;
+}
+.button.button-account {
+	border: 2px solid #64c1ec;
+	font-size: 0.9em;
+}
+/*.button.button-cta {
+	text-transform: uppercase;	
+}*/
+.button.button-publier {
+	background-color: #ff8875;
+	color: #fff;
+	font-size: 0.9em;
+}
+.button.button-publier:hover {
+	color: #ff8875;
+	background-color: #fff;
+}
+.button.button-submit::before, .button.button-next::after, .button.button-publier::before {
+    vertical-align: middle;
+    content: "";
+    display: inline-block;
+    background-image: url(../img/pictogrammes/exercice_arrow.png);
+    background-repeat: no-repeat;
+    width: 14px;
+    height: 11px;
+    background-size: 14px;
+    background-position: center center;
+    margin-right: 0.8em;
+}
+.button.button-next {
+	border: 2px solid #64c1ec;
+	line-height: 2.4;
+	margin-top: 1em;
+}
+.button.button-next::after {
+    margin-left: 0.8em;
+    margin-right: 0;	
+}
+.button.button-publier:hover::before {
+    background-image: url(../img/pictogrammes/exercice_arrow_orange.png);	
+}
+.button.button-submit:hover::before, .button.button-next:hover::after  {
+    background-image: url(../img/pictogrammes/exercice_arrow_blue.png);	
+}
+.button.button-cta:hover, .button.button-submit:hover, .button.button-next:hover, .button.button-account:hover {
+	background-color: #fff;
+	color: #64c1ec;
+}
+body.exercice .button-reset, body.exercice .button-submit {
+	padding: 0 2.8em;
+}
+header:not(.home) a.button {
+	border-color: #fff;
+	color: #fff;
+}
+header:not(.home) a.button:hover {
+	background-color: #fff;
+	color: #ff8875;
+}
+.button.button-reset {
+	border-color: #fff;
+	background-color: #354552;
+	color: #fff;
+	margin-right: 6px;
+}
+.button.button-reset:hover {
+	background-color: #fff;
+	color: #354552;
+}
+.button.button-comments {
+	color: #3d4140;
+	background-color: transparent;
+	border-color: #3d4140;
+	display: block;
+	margin: 0 auto;
+}
+.button.button-comments:hover {
+	color: #fff;
+	background-color: #3d4140;
+}
+.button-comments-small:hover {
+	text-decoration: none;
+	background-image:url(../img/pictogrammes/exercice_comment.png);
+	background-size: 26px;
+	width: 54px;
+	height: 54px;
+	border: none;	
+	border-radius: 50%;
+	background-color: #64c1ec;
+	background-repeat: no-repeat;
+	background-position: center center;
+	outline: none;
+}
+
+/* Ancres */
+.chevron {
+	display: block;
+	height: 2.5em;
+	width: 2.5em;
+	background: url(../img/pictogrammes/home_scroll.png);
+	background-position: center center;
+	background-size: contain;
+	background-repeat: no-repeat;
+	outline: none;
+}
+.chevron.chevron-up {
+	transform: rotate(180deg);
+}
+
+
+/* Progress charts */
+.progression {
+	color: 	#8e8f90;
+}
+.progression .circle {
+	position: relative;
+	display: inline-block;
+	vertical-align: middle;
+	width: 34px;
+	height: 34px;
+	margin-bottom: 2px;
+}
+.progression .circle strong {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    line-height: 34px;
+    font-size: 10px;
+    color: #000;
+}
+.progression-big {
+	background-color: #fff;
+	border-radius: 16px;
+	padding: 20px 40px;
+	margin: 0 auto;
+	display: inline-block;
+	text-align: center;
+	
+}
+.progression.progression-big .circle {
+	width: 96px;
+	height: 96px;
+}
+.progression.progression-big .circle strong {
+	line-height: 96px;
+	font-size: 32px;
+	font-weight: normal;
+	color: #5a5a5a;
+}
+/*
+.progression-big {
+	background-color: #fff;
+	border-radius: 16px;
+	padding: 20px 40px;
+	margin: 0 auto;
+	display: inline-block;
+}
+.progression.progression-big .circle {
+	width: 120px;
+	height: 120px;
+}
+.progression.progression-big .circle strong {
+	line-height: 120px;
+	font-size: 32px;
+	font-weight: normal;
+	
+*/
+
+/************
+ *   HOME   *
+ ************/
+
+
+
+body.home header {
+	position: relative;
+	background: rgba(22,29,49,0.62);
+}
+body.home header::before {
+	content:"";
+	position: absolute;
+	z-index: -1;
+	top: 0;bottom: 0;left: 0;right: 0;
+	background-image: url(../img/bg/bg_test.jpg);
+	background-size: cover;
+	background-position: center;
+}
+body.home header .logo img {
+	width: 130px;
+	margin: 10px 0;
+}
+body.home h1 {
+	text-transform: uppercase;
+}
+body.home h2 {
+	font-size: 2.2rem;
+}
+body.home h3 {
+	font-size: 1.8rem;
+	color: #615A52;
+}
+
+body.home .introduction {
+	background-image: none;
+}
+body.home main {
+	background-color: transparent;
+}
+body.home main section>div {
+	padding-top: 1rem;
+	padding-bottom: 2rem;
+}
+body.home section h2 {
+	color: #615A52;
+	text-align: center;
+	font-size: 2.2rem;	
+	margin-top: 1.5em;
+}
+/*body.home section h2::after {
+	content: "";
+	display: block;
+	margin: 0.5em auto;
+	height: 3px;
+	width: 10rem;
+	background-color: #354552;
+}*/
+section#methode {
+	background-color: #fff;
+}
+section#temoignages {
+	background-color: #f7f6fb;
+}
+/*section#methode > div {
+	border-bottom: 1px solid #eee;
+}*/
+section#methode ul {
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: space-between;
+	margin-top: 4em;
+}
+section#methode ul li{
+	width: 23%;
+	text-align: center;
+	color: #7e8890;
+	line-height: 1.9em;
+}
+section#methode ul li img{
+	width: 85%;
+	max-width: 200px;
+}
+section#temoignages ul {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-around;
+	align-items: stretch;
+	/*box-shadow: inset 0px 2px 50px 35px rgba(255,255,255,1);
+	background-color: #e8e8e8;*/
+	padding: 2em;
+	margin: 2em 0;
+}
+section#temoignages li {
+	width: 90%;
+	background-color: #fff;
+	border-radius: 1em;
+	margin: 0.5em 0;
+}
+blockquote {
+	color: #717f86;
+	border: none;
+	font-size: inherit;
+	background-image: url(../img/pictogrammes/home_quote.png);
+	background-repeat: no-repeat;
+	background-size: 5em;
+	background-position: 2em 3.5em;
+	padding: 6em 2em 4em 5.5em;
+	margin-bottom: 0;
+}
+blockquote p {
+	font-style: italic;
+	color: #7e8890;
+	line-height: 1.9em;
+}
+blockquote footer {
+	background: transparent;
+	text-align: left;
+	color: #7e8890;
+	font-size: inherit;
+	font-style: italic;
+	margin-top: 1em;
+}
+blockquote footer::before {
+	display: none;
+}
+/*section#inscription {
+	position: relative;
+	background-color: #354551;
+	color: #fff;
+	text-align: center;
+	line-height: 1.9;
+}
+section#inscription img {
+	max-width: 200px;
+}
+section#inscription h2 {
+	color: #fff;
+	font-weight: bold;
+	margin-top: 0.5em;
+} 
+section#inscription h2::after {
+	display: none;
+}
+section#inscription p {
+	padding: 1.5em 0;
+}
+section#inscription .row {
+	margin-bottom: 3em;
+}
+section#inscription a.button.button-cta {
+	font-size: 1.5rem;
+}*/
+/*******************
+ *  INTERMEDIAIRE  *
+ *******************/
+
+
+body.intermediaire main {
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+body.intermediaire h2, body.home #courses h2 {
+	margin: 2em 0 1em;
+	text-align: left;
+}
+body.intermediaire main .row, section#courses .row {
+	display: flex;
+	flex-flow: row wrap;
+	align-items:stretch;
+}
+
+/* onglets navigation */
+main ul.nav-tabs {
+	border-bottom: none;
+}
+main ul.nav-tabs>li>a {
+	color: #a4a4a4;
+	font-size: 1.6rem;
+	padding: 2em 0;
+	margin-right: 2em;
+	border: none!important;
+	background: none!important;
+}
+
+main ul.nav-tabs>li>a::after {
+	content: "";
+	display: block;	
+	margin: 1em auto 0;
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+	background-color: #ff8875;
+	opacity: 0;
+	transition: all 0.2s;
+}
+main ul.nav-tabs>li.active>a::after, ul.nav-tabs>li>a:hover::after {
+	opacity: 1;
+}
+main ul.nav-tabs>li.active>a, ul.nav-tabs>li.active>a:focus, ul.nav-tabs>li>a:hover {
+	border: none;
+	background-color: transparent;
+	color: #2b3541;
+}
+
+.avancement {
+	position: relative;
+	background-color: #fff;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	padding: 2em;
+}
+.avancement h3 {
+	color: #ff8875;
+	font-weight: bold;
+	margin-top: 0;
+}
+
+.avancement h4 {
+	font-weight: bold;
+}
+.avancement hr {
+	border-color: #ccc;
+	margin: 2em 0 1.5em;
+}
+.avancement .button {
+	margin-top: 1em;
+}
+
+/**************
+ *  SYLLABUS  *
+ **************/
+
+body.syllabus .introduction {
+	padding: 3em 0;
+
+}
+body.syllabus .introduction .container {
+	position: relative;
+}
+a.link-back {
+	position: absolute;
+    display: block;
+    width: 60px;
+    height: 50px;
+    top: -3em;
+    left: 0;
+    background-image: url(../img/pictogrammes/syllabus_arrow_back.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 15px;
+    outline: none;
+}
+a.link-back:hover {
+    background-image: url(../img/pictogrammes/syllabus_arrow_back_2.png);	
+}
+header .pastilles div {
+	display: inline-block;
+	border: 2px solid #fff;
+	border-radius: 10px;
+	color: #fff;
+	background-color: #354552;
+	font-size: 0.8em;
+	margin: 2em 0.7em;
+	line-height: 2.1;
+	min-width: 8em;
+	text-align: center;
+}
+body.syllabus main {
+	margin: 0 auto 2em;
+	text-align: center;
+}
+.progression-big {
+	margin-bottom: 2em;
+}
+.syllabus-lecon {
+	position: relative;
+}
+.syllabus-lecon::after {
+	content: "";
+	display: block;
+	height: 2em;
+	width: 8px;
+	background: white;
+	position: absolute;
+	top:100%;
+	left: 50%;
+	margin-left: -4px;
+}
+.syllabus-lecon:last-child::after {
+	display: none;
+}
+.syllabus-lecon-inner {
+	position: relative;
+	background-color: #fff;
+	border-radius: 3em;
+	margin-bottom: 2em;
+	overflow: hidden;
+	text-align: left;
+	
+}
+.syllabus-lecon:last-child .syllabus-lecon-inner {
+	margin-bottom: 0;
+}
+.syllabus-lecon-header {
+	position: relative;
+}
+body.syllabus section header {
+	position: relative;
+}
+body.syllabus section h2 {
+	text-align: left;
+	margin: 1em 15px 1em 75px;
+	padding: 0.9em 0;
+}
+body.syllabus section header .progression {
+	position: absolute;
+	top: 0;
+	left: 15px;
+}
+body.syllabus section header .progression .circle {
+	height: 50px;
+	width: 50px;
+}
+body.syllabus section header .progression .circle strong {
+	line-height: 50px;
+	font-size: 12px;
+}
+.syllabus-lecon h3 {
+	padding: 0.5em 4.5em;
+	font-size: 1.4rem;
+	color: #5d6a75;
+	margin: 0;
+	cursor: pointer;
+}
+.syllabus-lecon.complete h3 {
+	background-image:url(../img/pictogrammes/syllabus_check.png);
+	background-repeat: no-repeat;
+	background-size: 2.2em;
+	background-position: 16px center; 
+	font-weight: normal;
+}
+.syllabus-lecon h3 span {
+	text-transform: uppercase;
+	color: #ff8875;
+	display: block;
+	margin-right: 0.5em;
+	font-weight: bold;
+}
+.syllabus-lecon .progression {
+	position: absolute;
+	left: 15px;
+	top: 50%;
+	margin-top: -16px;
+}
+.syllabus-lecon-toggle {
+	position: absolute;
+    width: 40px;
+    height: 40px;
+    right: 15px;
+    top: 50%;
+    margin-top: -20px;
+    background-image: url(../img/pictogrammes/syllabus_arrow.png);
+    background-color: transparent;
+    background-repeat: no-repeat;
+    border: none;
+    background-size: 15px;
+    background-position: center center;
+    outline: none;
+}
+.syllabus-lecon.open .syllabus-lecon-toggle {
+	transform: rotate(180deg);
+}
+.syllabus-lecon-details {
+	position: relative;
+	display: none;
+	font-size: 1.4rem;
+	padding-left: 4.5em;
+	color: #5d6a75;
+	border-top: 1px solid #ccc;
+	margin: 0;
+}
+.syllabus-lecon-details ul {
+	padding: 0.7em 0;
+	margin: 0;
+}
+.syllabus-lecon.open .syllabus-lecon-details {
+	display: block;
+}
+.syllabus-lecon-details li {
+	position: relative;
+	padding: 1.2em 3em 1.2em 5em;
+	background-image: url(../img/pictogrammes/syllabus_todo.png);
+	background-repeat: no-repeat;
+	background-size: 2.3em;
+	background-position: left center;
+}
+.syllabus-lecon-details li.complete {
+	background-image: url(../img/pictogrammes/syllabus_check.png);
+}
+.syllabus-lecon-details li a {
+	color: inherit;
+	transition: color 0.3s;
+}
+.syllabus-lecon-details li a:hover, .syllabus-lecon-details li a:focus, .syllabus-lecon-details li a:active {
+	color: #ff8875;
+	text-decoration: none;
+}
+/********************
+ *  SIGNUP / LOGIN  *
+ ********************/
+
+body.signup header {
+	background-color: #354551;
+}
+body.signup main .row {
+/*	display: flex;
+	flex-flow: row wrap;
+	align-items: stretch;*/
+} 
+.blurb {
+	background-color: #354551;
+	text-align: center;
+	font-size: 1.2em;
+	color: #fff;
+}
+.blurb h2 {
+	margin-top: 0;
+}
+.blurb img {
+	width: 90%;
+	max-width: 300px;
+	margin-top: 1em;
+}
+.form-container {
+	background-color: #fff;
+}
+.blurb-inner, .form-container-inner {
+	padding: 2em 0;
+}
+/*body.signup form h1, body.signup form > div {
+	max-width: 300px;
+}*/
+body.signup form h1 {
+	margin: 0 auto 2em;
+	text-transform: uppercase;
+	/*font-family: 'Nunito', sans-serif;*/
+	font-weight: normal;
+	font-size: 1.1em;
+}
+body.signup form > div {
+	margin: 1em auto;
+	padding-top: 1em;
+	position: relative;
+}
+body.signup form label {
+	position: absolute;
+	top: 1.15em;
+	left: 0;
+	right: 0;
+	display: block;
+	font-size: inherit;
+	color: #354552;
+	font-weight: normal;
+	margin: 0;	
+	transition: all 0.3s;
+	line-height: 2.2;
+}
+body.signup form label.has-content {
+	font-size: 0.7em;
+	top: 0;
+}
+body.signup form input[type="email"], body.signup form input[type="password"] {
+	display: block;
+	border-width: 0 0 1px;
+	border-style: solid;
+	border-color: #ccc;
+	width: 100%;
+	padding: 0.5em 0;
+	background: transparent;
+	outline: none;
+}
+
+body.signup form > div.email-container label{
+	background-image: url(../img/pictogrammes/signup_mail.png);
+	background-position: right center;
+	background-repeat: no-repeat;
+	background-size: 20px;
+	
+}
+body.signup form > div.password-container label{
+	background-image: url(../img/pictogrammes/signup_lock.png);
+	background-position: right center;
+	background-repeat: no-repeat;
+	background-size: 15px;
+}
+body.signup form > div.submit-container{
+	text-align: center;
+	margin: 2em auto 0;
+}
+body.signup form > div.extra-container {
+	font-size: 0.8em;
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: space-between;
+	margin: 2em auto 0;
+}
+.mdp-oublie {
+	color: #52a4c3;
+	text-decoration: underline;
+	transition: all 0.3s;
+}
+.mdp-oublie:hover {
+	color: #000;
+}
+body.signup button.button {
+	border-color: #ff8875;
+	font-size: 0.9em;
+}
+
+/**************
+ *  EXERCICE  *
+ **************/
+
+body.exercice .container {
+	width: 100%!important;
+
+}
+a.lien-home-cours {
+	font-weight: normal;
+	color: white;
+	transition: color 0.3s;
+}
+a.lien-home-cours:hover, a.lien-home-cours:active, a.lien-home-cours:focus {
+	color: #354552;
+	font-weight: normal;
+	text-decoration: none;
+}
+.navigation-cours {
+	font-size: 1.25em;
+}
+.navigation-cours .dropdown {
+    display: inline-block;
+}
+.navigation-cours .dropdown .dropdown-toggle {
+	transition: all 0.3s;
+}
+.navigation-cours .dropdown .dropdown-toggle:hover {
+	color: #354552;	
+}
+.navigation-cours h1 {
+	font-size: 1em;
+	cursor: pointer;
+	font-family: inherit;
+}
+.fa {
+	margin: 0 10px;
+}
+.onglets-header-exercice {
+	background-color: #ff8875;
+	color: #fff;
+}
+.onglets-header-exercice ul.nav-tabs {
+	border-bottom: none;
+}
+.onglets-header-exercice li {
+	margin-bottom: 0;
+}
+.onglets-header-exercice li a {
+	color: #F0E6E6;
+	font-size: 1.4rem;
+	border: none!important;
+	background-color: none!important;
+	display: inline-block;
+	background-size: 30px;
+	background-repeat: no-repeat;
+	background-position: center 10px;
+	padding-top: 65px;
+	border-radius: 0;
+	width: 6.5em;
+	margin-right: 0px;
+}
+li#onglet-exercice a {
+	background-image:url(../img/pictogrammes/onglet_exercice.svg);
+}
+#onglet-lecon a {
+	background-image:url(../img/pictogrammes/onglet_lecon.svg);	
+}
+#onglet-astuces a {
+	background-image:url(../img/pictogrammes/onglet_astuces.svg);	
+}
+#onglet-comments a {
+	background-image:url(../img/pictogrammes/exercice_comment.png);
+}
+.onglets-header-exercice li.active a, .onglets-header-exercice li a:focus, .onglets-header-exercice li a:hover {
+	color: #fff!important;
+	background-color: #FF8875!important;
+}
+li#onglet-exercice.active a, li#onglet-exercice a:focus, li#onglet-exercice a:hover{
+	background-image:url(../img/pictogrammes/onglet_exercice_selectionne.png);	
+}
+li#onglet-lecon.active a, li#onglet-lecon a:focus, li#onglet-lecon a:hover{
+	background-image:url(../img/pictogrammes/onglet_lecon_selectionne.png)!important;	
+}
+li#onglet-astuces.active  a, li#onglet-astuces a:focus, li#onglet-astuces a:hover{
+	background-image:url(../img/pictogrammes/onglet_astuces_selectionne.png)!important;	
+}
+li#onglet-comments.active  a, li#onglet-comments a:focus, li#onglet-comments a:hover{
+	background-image:url(../img/pictogrammes/exercice_comment.png)!important;	
+}
+.btns-onglets {
+	display: none;
+}
+.btn-onglet {
+    position: relative;
+    display: inline-block;
+    border: 1px solid #fff;
+    border-radius: 3px;
+    background-color: rgba(255,255,255,0.2);
+    font-size: 24px;
+    /* line-height: 1; */
+    height: 28px;
+    width: 28px;
+    padding: 0;
+    margin-left: 8px;
+    cursor: pointer;
+    transition: all 0.3s;
+    outline: none;
+	color: #fff;
+}
+.btn-onglet:hover {
+	color: #fd6349;
+	background-color: #fff;
+	text-decoration: none;
+}
+.btn-onglet .fa {
+	display: block;
+}
+
+.contenu-onglets section {
+	margin: 2.5em 0;
+}
+.console-buttons button, .comments-buttons button {
+	margin: 0 2px;
+}
+.encart {
+	background: #fff;
+	border: 1px solid rgba(0,0,0,0.1);
+	border-radius: 10px;
+	margin: 0 0 1em;
+	padding: 2em;
+}
+.encart h2 {
+	color: #ff8875;
+	text-align: center;
+	margin-top: 0;
+	font-size: 1.6rem;
+	margin-bottom: 1.5em;
+}
+.encart p:last-child {
+	margin-bottom: 0;
+}
+.button-comments-small {
+	background-image:url(../img/pictogrammes/exercice_comment.png);
+	background-size: 26px;
+	width: 54px;
+	height: 54px;
+	border: none;	
+	border-radius: 50%;
+	background-color: #3d4140;
+	background-repeat: no-repeat;
+	background-position: center center;
+	outline: none;
+}
+.comment {
+	position: relative;
+	padding: 1em 0;
+	border-bottom: 1px solid #ccc;
+}
+.comment:last-child {
+	border:none;
+	padding-bottom: 0;
+}
+.comment-avatar, .comment-saisie .avatar {
+	width: 45px;
+	border-radius: 50%;
+}
+.comment-avatar {
+	position: absolute;
+	left: 0;top: 1em;
+}
+.comment-auteur, .comment-contenu {
+	margin-left: 70px;
+}
+.comment-auteur {
+	font-weight: bold;
+	margin-bottom: 0.3em;
+}
+.comment-auteur .badge {
+	font-weight: normal;
+	border: 1px solid #ff8875;
+	background-color: #fff;
+	color: #ff8875;
+	display: inline-block;
+	margin-left: 1em;
+	padding: 7px;
+}
+
+.exercice-interactif {
+	margin-top: 4em;
+	margin-bottom: 15px;
+
+}
+.console {	
+	background-color: #354552;
+	color: #fff;
+	position: relative;
+	height: 50%;
+	padding: 0.01em 0;
+	/*overflow: scroll;*/
+}
+.resultat-zone {
+	min-height: 300px;
+	/*padding: 1em;*/
+	box-sizing: content-box;
+}
+.resultat-zone iframe {
+	height: calc(100% - 30px);
+    width: calc(100% - 11px);
+    position: absolute;
+    border: 0px;
+    left: 11px;
+    top: 15px;
+    bottom: 15px;
+}
+
+.console-zone {
+	min-height: 150px;
+	margin: 1em 0 7em; /*3.1em*/;
+	box-sizing: content-box;
+	position: relative;
+	
+}
+.console-zone .editor, .editor-mini {
+	display: none;
+}
+.console-zone .editor.active, .editor-mini.active {
+	display: block;
+}
+.console-buttons {
+	position: absolute;
+	bottom: 3.7em;
+	right: 1em;
+}
+.resultat {
+	position: relative;
+	background-color: #fff;
+	height: 50%;
+}
+.console-onglets, .resultat-onglet {
+	position: absolute;
+	bottom: 100%;
+	left: 0;
+}
+.console-onglet, .resultat-onglet {
+	border-radius: 5px 5px 0 0;
+	text-align: center;
+	padding: 0.8em 0;
+	z-index: 2;
+}
+.console-onglet {
+	display: inline-block;
+	background-color: #556572;
+	cursor: pointer;
+	width: 7em;
+	margin-right: 3px;
+}
+.console-onglet.active {
+	background-color: #354552;
+}
+.resultat-onglet {
+	background-color: #fff;
+	width: 12em;
+}
+
+.ace-monokai, .ace_gutter, .ace_gutter-active-line, .ace_print-margin {
+	background-color: #354552 !important;
+}
+.ace_active-line  {
+	background-color: transparent !important;
+}
+.ace_gutter {
+	z-index: 0!important;
+}
+.ace_print-margin {
+	display: none;
+}
+body.exercice h1 .fa {
+	font-size: 1.2em;
+	margin-left: 0.5em;
+}
+/*body.exercice h1 .chevron {
+	margin-left: 0.5em;
+	margin-bottom: 0.3em;
+    display: inline-block;
+    height: 1.3em;
+    width: 1.3em;
+    vertical-align: middle;
+    background-image: url(../img/pictogrammes/exercice_scroll.png);
+}*/
+body.exercice nav .navigation-cours .dropdown-menu {
+	margin: 0;
+	padding: 0;
+	border-radius: 4px;
+	border: 1px solid #eee;
+	box-shadow: none;
+	background-clip: inherit;
+}
+body.exercice nav .navigation-cours .dropdown-menu ul {
+	margin: 0;
+}
+body.exercice nav .navigation-cours .dropdown-menu li {
+	display: block;
+}
+body.exercice nav .navigation-cours .dropdown-menu a {
+	padding: 0.1em 4em 0.1em 1.5em;
+	color: #354552;
+	display: block;	
+	white-space: nowrap;
+	transition: all 0.3s;
+}
+body.exercice nav .navigation-cours .dropdown-menu a.link-main {
+	border: none;
+    padding: 0.5em 1.5em;
+	text-align: left;
+	font-size: 18px;
+	border-bottom: solid 1px #ccc;
+}
+body.exercice nav .navigation-cours .dropdown-menu a.link-main img {
+	width: 40px;
+	margin-right: 10px;
+}
+body.exercice nav .navigation-cours .dropdown-menu a:hover {
+	text-decoration: none;
+}
+body.exercice nav .navigation-cours .dropdown-menu a:not(.link-main):hover {
+	color: #ff8875;
+	text-decoration: none;
+}
+body.exercice nav .navigation-cours .dropdown-menu a.complete {
+	background-image: url(../img/pictogrammes/syllabus_check.png);
+	background-repeat: no-repeat;
+	background-position: right 10px center;
+	background-size: 25px;
+}
+body.exercice nav .navigation-cours .dropdown-menu a.pending {
+	background-image: url(../img/pictogrammes/pending.png);
+	background-repeat: no-repeat;
+	background-position: right 10px center;
+	background-size: 25px;
+}
+body.exercice nav .navigation-cours .dropdown-menu a.pending:hover {
+	background-image: url(../img/pictogrammes/pending_hover.png);
+}
+/**********************
+ * COMMENTAIRES MODAL *
+ **********************/
+.comments-overlay {
+	display: none;
+}
+.comments-overlay.open {
+	display: block;
+}
+.console-mini {
+	display: none;
+}
+.comments-header {
+	background-color: #ff8875;
+	padding: 15px;
+	position: relative;
+}
+.comments-header h2 {
+	color: #fff;
+	font-weight: bold;
+	text-transform: uppercase;
+	margin-top: 0;
+}
+.comments-buttons {
+	font-size: 0.85em;
+}
+.comments-close {
+	height: 20px;
+	width:20px;
+	border: none;
+	position: absolute;
+	right: 15px;
+	top: 15px;	
+	padding: 0;
+	background-color: transparent;
+}
+.comments-close::before, .comments-close::after {
+	display: block;
+	content: "";
+	width:20px;
+	height: 1px;
+	background-color: #fff;
+	 transform-origin: 50% 50%;
+}
+.comments-close::before{
+	transform: rotate(45deg);
+} 
+.comments-close::after {
+	transform: rotate(-45deg);	
+}
+.comments-overlay .comments-list ul {
+	margin-bottom: 0;
+}
+.comments-overlay .comment {
+	padding: 15px;
+	background-color: #fff;
+}
+.comments-overlay .comment-mod {
+	background-color: #feb5a9;
+}
+.comment-reply {
+	padding-left: 15px; 
+}
+.comments-overlay .comment-avatar {
+	left: 15px;
+}
+.comment-reply .comment-avatar {
+	left: 15px; 
+}
+
+.comment-date {
+	text-align: right;	
+	margin-bottom: 0;
+}
+.comment-date>span {
+	display: inline-block;
+	background-image: url(../img/pictogrammes/commentaire_time.png);
+	background-repeat: no-repeat;
+	background-size: 14px;
+	background-position: left center;
+	padding-left: 22px;
+}
+.comment-saisie {
+	text-align: center;
+	padding: 15px;
+	background-color: #fff;
+}
+.comment-saisie .avatar {
+	display: none;
+}
+.comment-saisie .commentaire {
+	border: 1px solid #ff8875;
+	width: 100%;
+	height: 32px;
+	border-radius: 16px;
+	padding: 0 1.2em;
+	margin-bottom: 1em;
+	outline: none;
+}
+
+/***********
+ *  MODALE *
+ ***********/
+
+.vertical-alignment-helper {
+    display:table;
+    height: 100%;
+    width: 100%;
+    pointer-events:none; /* This makes sure that we can still click outside of the modal to close it */
+}
+.vertical-align-center {
+    /* To center vertically */
+    display: table-cell;
+    vertical-align: middle;
+    pointer-events:none;
+}
+.modal-content {
+    /* Bootstrap sets the size of the modal in the modal-dialog class, we need to inherit it */
+    width:inherit;
+    height:inherit;
+    /* To center horizontally */
+    margin: 0 auto;
+    pointer-events: all;
+    text-align: center;
+}
+#modal-result .modal-content {
+	max-width: 380px;
+	border-radius: 15px;
+}
+#modal-result .modal-body {
+	padding: 15px 40px;
+}
+#modal-result .close {    
+	font-size: 32px;
+    position: absolute;
+    right: 8px;
+    top: 4px;
+    outline:none;
+}
+#modal-result img {
+	width: 230px;
+}
+#modal-result h2 {
+	font-weight: bold;
+	margin-bottom: 1em;
+}
+#modal-result p {
+	text-align: left;
+	font-size: 1.1em;
+}
+#modal-result .button-next {
+	font-size: 1.2em;
+}
+
+/***********************
+ *  SWITCH JAVASCRIPT  *
+ ***********************/
+
+.console-buttons * {
+	vertical-align: bottom;
+}
+.console-buttons label[for="switch-js"] {
+	font-weight: normal;
+	margin-bottom: 8px;
+	margin-right: 3px;
+}
+.console-buttons label .long, .console-buttons label .medium {
+	display: none;
+}
+ /* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 58px;
+  height: 32px;
+  margin-bottom: 0;
+}
+
+/* Hide default HTML checkbox */
+.switch input {display:none;}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 24px;
+  width: 24px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #64c1ec;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #64c1ec;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+} 
+
+/***********************************
+ *  DROPDOWN UTILISATEUR CONNECTE  *
+ ***********************************/
+
+.user-dropdown .dropdown-menu {
+	top: 35px;
+	right: 12px;
+	left: auto;
+}
+.user-dropdown .dropdown-menu:before {
+  position: absolute;
+  top: -7px;
+  right: 9px;
+  display: inline-block;
+  border-right: 7px solid transparent;
+  border-bottom: 7px solid #ccc;
+  border-left: 7px solid transparent;
+  border-bottom-color: rgba(0, 0, 0, 0.2);
+  content: '';
+}
+.user-dropdown .dropdown-menu:after {
+  position: absolute;
+  top: -6px;
+  right: 10px;
+  display: inline-block;
+  border-right: 6px solid transparent;
+  border-bottom: 6px solid #ffffff;
+  border-left: 6px solid transparent;
+  content: '';
+}
+.user-dropdown .dropdown-menu>li {
+	display: block;
+}
+.user-dropdown .dropdown-menu>li>a {
+	display: block;
+	color: #354552;
+	padding: 7px 20px;
+}
+.user-dropdown .dropdown-menu>li>a:hover {
+	color: #ff8875;
+	background-color: transparent;	
+}
+/***********
+ *  UTILS  *
+ ***********/
+
+.center {
+	text-align: center;
+}
+
+/***********************
+ *  SCROLLBARS WEBKIT  *
+ ***********************/
+
+
+
+.custom-scrollbar::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	border-radius: 4px;
+	background-color: #F5F5F5;
+}
+.custom-scrollbar.custom-scrollbar-console::-webkit-scrollbar-track
+{
+	background-color: #354552;
+	border-radius: 0;
+	-webkit-box-shadow: none;
+}
+
+.custom-scrollbar::-webkit-scrollbar
+{
+	width: 8px;
+	background-color: #F5F5F5;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb
+{
+	border-radius: 4px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: #556572;
+	height: 54px;
+}
+
+
+/*******************
+ *  MEDIA QUERIES  *
+ *******************/
+
+@media only screen and (min-width: 400px) {
+	nav li a, nav p {
+		font-size: 1.4rem;
+	}
+	.syllabus-lecon h3 {
+		padding: 1.5em 4.5em;
+	}
+	.syllabus-lecon h3 span {
+		display: inline-block;
+	}
+}
+@media only screen and (max-width: 480px) {
+	section#methode ul p{
+		font-size: 1rem;
+	}
+	body.intermediaire main .col-xs-6 {
+		width: 100%;
+	}
+	.onglets-header-exercice {
+		text-align: center;
+	}
+	.onglets-header-exercice li {
+		display: inline-block;
+		float: none;
+	}
+
+}
+@media only screen and (min-width: 480px) {
+	.onglets-header-exercice .container {
+		display: flex;
+		flex-flow: row nowrap;
+		justify-content: space-between;
+		align-items: center;
+	}
+	.onglets-header-exercice .container::before, .onglets-header-exercice .container::after {
+		display: none;
+	}
+	.btns-onglets {
+		display: block;
+	}
+	.console-buttons {
+		bottom: 2.1em;
+	}
+	.console-onglet {
+		width: 10em;
+	}
+}
+@media only screen and (min-width: 640px) {
+	.rappel-nav {
+		display: block;
+	}
+	.social::before, .social::after {
+		display: block;
+	}
+	.avancement .progression {
+		position: absolute;
+		right: 2em;
+		top: 1.5em;
+	}
+	header .pastilles {
+		text-align: left;
+	}
+	header .pastille-horizontale {
+		text-align: left;
+	}
+	.syllabus-lecon h3 {
+		padding: 1.5em 7em;
+	}
+	.syllabus-lecon.complete h3 {
+		background-position: 48px center;
+	}
+	.syllabus-lecon .progression {
+		left: 46px;
+	}
+	.syllabus-lecon-toggle {
+		right: 2em;
+	}
+	.syllabus-lecon-details {
+		padding-left: 7.5em;
+	}
+	.syllabus-lecon-details::before {
+		left: 8.4em;
+	}
+	.comments-header {
+		display: flex;
+		flex-flow: row nowrap;
+		justify-content: space-between;
+		align-items: center;
+		padding: 2.2em 15px;
+	}
+	.comments-header h2 {
+		margin-bottom: 0;
+	}
+	.comments-header .comments-buttons {
+		margin-right: 50px;
+	}
+	.comments-overlay .comment-auteur, .comments-overlay  .comment-contenu {
+		margin-right: 130px;
+	}
+	.comment-reply {
+		padding-left: 30px;
+	}
+	.comment-reply .comment-avatar {
+		left: 30px;
+	}
+	.comment-date {
+		position: absolute;
+		top: 15px;right: 15px;
+	}
+	body.exercice .console-main .button-reset, body.exercice .console-main .button-submit {
+		padding: 0 2.8em;
+	}
+	.console-buttons label .short, .console-buttons label .long {
+		display: none;
+	}
+	.console-buttons label .medium {
+		display: inline;
+	}
+}
+@media only screen and (min-width: 768px) {
+	.nav-fixed .nav-wrapper {
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		transition: background-color 0.3s;
+		z-index: 10;
+	}
+	body .nav-fixed .nav-wrapper {
+		height: 67px;
+	}
+	body:not(.home) .nav-fixed:not(.header-blue) .nav-wrapper {
+		background-color: #ff8875;
+	}
+	body.home .nav-fixed .nav-wrapper.sticky {
+		background-color: rgba(22,29,49,0.8);
+	}
+	body .nav-fixed.header-blue .nav-wrapper.sticky {
+		background-color: #354551;
+	}
+	header.nav-fixed {
+		padding-top: 63px;
+	}
+	nav {
+		display: flex;
+		flex-flow: row wrap;
+		justify-content: space-between;
+		align-items: center;
+	}
+	nav>a {
+		order: 1;
+	}
+	nav>ul {
+		margin-bottom: 0;
+		order: 2;
+		height: 55px;
+	}
+	.navigation-cours {
+		order: 3;
+		width: 100%;
+		text-align: center;
+	}  
+	nav>ul>li:last-child, nav li a.button, nav li:last-child a {
+		margin-right: 0;
+	}
+	nav>ul>li a.profile-link {
+		padding-right: 0;
+		line-height: 55px;
+	}
+	.introduction {
+		line-height: 3.8;
+	}
+	body.home .introduction {
+		padding: 10em 0;
+	}
+	section#temoignages li {
+		width: 45%;
+	}
+	/*section#inscription h2, section#inscription p {
+		text-align: left;
+	}
+	section#inscription .row {
+		display: flex;
+		flex-flow: row wrap;
+		align-items:center;
+		margin: 2.5em 0;
+	}*/
+	.social {
+		margin-bottom: 20px;
+	}
+	.social a {
+	    padding: 10px;
+	}
+	body.signup {
+		overflow: hidden;
+	}
+	body.signup header {
+		background-color: transparent;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		z-index: 1;
+	}
+	body.signup header nav p {
+		color: 	#7e8890;
+		order: 2;
+	}
+	body.signup header nav a.button {
+		color: #ff8875;
+		border-color: #ff8875;
+	}
+	body.signup header nav a.button:hover {
+		color: white;
+		background-color: #ff8875;
+	}
+	body.signup main .row {
+		min-height: 100vh;
+	}
+	body.signup main .row > * {
+		padding-top: 4em;
+		padding-bottom: 4em;
+		position: relative;
+		height: 100vh;
+		display: table;
+	}
+	body.signup main .row > * > * {
+		display: table-cell;
+		vertical-align: middle;
+	}
+	.blurb::before {
+		content:"";
+		background-color: #354551;
+		position: absolute;
+		right: 100%;
+		top: 0;bottom: 0;
+		width: 100%;
+	}
+	.form-container {
+		font-size: 1.5rem;
+	}
+	.form-container::before {
+		content:"";
+		background-color: #fff;
+		position: absolute;
+		left: 100%;
+		top: 0;bottom: 0;
+		width: 100%;
+	}
+	.form-container-inner {
+		padding-left: 4em;
+		padding-right: 4em;
+	}
+	.onglets-header-exercice li a {
+		margin-right: 0;
+	}
+	.dragbar {
+		background-image: url(../img/pictogrammes/exercice_cursor.png);
+		height: 22px;
+		width: 74px;
+		background-repeat: no-repeat;
+		background-size: 74px ;
+		position: absolute;
+		bottom: -11px;
+		left: 50%;
+		margin-left: -37px;
+		z-index: 5;
+		cursor: row-resize;
+	}
+	.dragbar.comments-dragbar {
+		transform: rotate(90deg);
+		cursor: col-resize;
+		left: 0%;
+		bottom: 50%;
+	}
+	.console-zone, .resultat-zone {
+		position: absolute;
+		min-height: 0;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		overflow: auto;
+	}
+	#console-ghostbar{
+	    height:2px;
+	    background-color:#000;
+	    opacity:0.2;
+	    position:absolute;
+	    cursor: row-resize;
+	    z-index:999;
+	}
+	.comments-overlay {
+		position: fixed;
+		top: 0; bottom: 0; left: 0; right: 0;
+		z-index: 50;
+	}
+	.comments-overlay.open {
+		display: flex;
+		flex-flow: row nowrap;
+	}
+	.comments-overlay .comments-list {
+		flex: auto;
+		display: flex;
+		flex-flow: column nowrap;
+		justify-content: space-between;
+	}
+	.comments-overlay .comments-list ul {
+		/*flex: auto;*/
+		background-color: #fff;
+		position: absolute;
+		top: 6.5em;
+		bottom: 5em;
+		overflow: auto;
+		width: 60%;
+	}
+	.console-mini {
+		display: block;
+		width: 40%;
+		height: 100vh;
+	}
+	.console-mini .console-onglet {
+		position: static;
+		width: auto;
+		text-align: left;
+		padding: 0.8em 1em;
+		
+	}
+	.console-mini .console-zone {
+		top: 3em;
+	}
+	.comment-saisie form {
+		display: flex;
+		flex-flow: row nowrap;
+		justify-content: space-between;
+	}
+	.comment-saisie .avatar {
+		display: inline-block;
+		width: 45px!important;
+		height: 45px!important;
+	}
+	.comment-saisie .commentaire {
+		margin: 0 1.2em;
+		width: auto;
+		flex: auto;
+
+	}
+	.comment-saisie .commentaire, .comment-saisie .button-publier {
+		height: 35px;
+		border-radius: 22.5px;
+	}
+	.console-buttons label .short {
+		display: inline;
+	}
+	.console-buttons label .medium, .console-buttons label .long {
+		display: none;
+	}
+	body.exercice .console-main .button-reset, body.exercice .console-main .button-submit {
+		padding: 0 6px;
+	}
+}
+@media only screen and (min-width: 768px) and (orientation: landscape), only screen and (min-width: 992px) {
+
+
+	.exercice-interactif {
+		position: fixed;
+	    left: 0;
+	    right: 0;
+	    height: 0;
+	    width: 100%;
+	    margin: 0 auto;
+	    padding-right: 0 !important;
+	    z-index: 2;
+	}
+	.exercice-interactif > * {
+		margin-left: calc(33.3% + 15px);
+	}
+	.navigation-cours h1 {
+		margin: 0;
+		line-height: 55px;
+	}
+	.navigation-cours .dropdown.open .dropdown-toggle {
+		color: #354552;
+	}
+	.user-dropdown .a {
+    	top: 46px;
+    	right: -5px;
+	}
+
+}
+@media only screen and (min-width: 768px) and (orientation: landscape) {
+	body.exercice header .nav-wrapper{
+		position: fixed;
+		left: 0;
+		top: 0;
+		right: 0;
+		z-index: 20;
+		background-color: #ff8875;
+	}
+	body.exercice header .onglets-header-exercice{
+		position: fixed;
+		left: 0;
+		top: 110px;
+		right: 0;
+		z-index: 1;
+	}
+	body.exercice main {
+		margin-top: 180px;
+	}
+	.exercice-interactif {
+	    /*height: calc(100vh - 125px);*/
+	    height: 0;
+	    	    top: 180px;
+	}
+	.exercice-interactif > * {
+		height: calc(50vh - 90px);
+	}
+	.console-zone {
+		margin-bottom: 4.5em;
+	}
+}
+
+@media only screen and (min-width: 992px) {
+	html {
+		font-size: 75%;
+	}
+
+	/*nav li a, .rappel-nav li a, nav p {
+		font-size: 1rem;
+	}*/
+	nav>ul {
+		height: 60px;
+	}
+	nav>ul>li a.profile-link {
+		line-height: 60px;
+	}
+	.onglets-header-exercice li a {
+		font-size: 1.2em;
+		background-size: 40px;
+		padding-top: 65px;
+		width: 7.5em;
+	}
+	body.exercice header .onglets-header-exercice{
+		top: 115px;
+	}
+	body.exercice main {
+		margin-top: 195px;
+	}
+	.exercice-interactif {
+	    /*height: calc(100vh - 135px);*/
+	    top: 195px;
+	}
+	.exercice-interactif > * {
+		height: calc(50vh - 97.5px);
+	}
+	.console-onglet {
+		width: 12em;
+	}
+	.console-buttons {
+		font-size: 0.9em;
+	}
+	.console-zone .editor, .console-zone .editor-mini {
+		font-size: 1em;
+	}
+	body.syllabus section header .progression {
+		top: 6px;
+	}
+	#modal-result .button-next {
+		font-size: 1em;
+	}
+	.user-dropdown .dropdown-menu {
+    	top: 52px;
+	}
+	.console-buttons label .short {
+		display: none;
+	}
+	.console-buttons label .medium {
+		display: inline;
+	}
+	body.exercice .console-main .button-reset, body.exercice .console-main .button-submit {
+		padding: 0 2.8em;
+	}
+}
+@media only screen and (min-width: 1168px) {
+	body.home .introduction {
+		padding: 12em 0;
+	}
+	.console-buttons label .medium {
+		display: none;
+	}
+	.console-buttons label .long {
+		display: inline;
+	}
+}
+@media only screen and (min-width: 1200px) {
+	body.syllabus section header .progression {
+		top: 29px;
+	}
+}
+.dislink
+{
+	color:inherit;
+	cursor:pointer;
+	pointer-events: none;
+}
+.dislink:link
+{
+	text-decoration: none;
+}
+.css_profil_li
+{
+	position: relative;
+	padding: 0.8em 3em 0.8em 5em;
+	background-image: url(../img/pictogrammes/syllabus_todo.png);
+	background-repeat: no-repeat;
+	background-size: 1.8em;
+	background-position: left center;
+}
+#qrcode>img
+{
+	margin:auto;
+}
+
+.dropdown-menu{position:absolute;top:100%;left:0;z-index:1000;display:none;float:left;min-width:160px;padding:5px 0;margin:2px 0 0;font-size:14px;text-align:left;list-style:none;background-color:#fff;-webkit-background-clip:padding-box;background-clip:padding-box;border:1px solid #ccc;border:1px solid rgba(0,0,0,.15);border-radius:4px;-webkit-box-shadow:0 6px 12px rgba(0,0,0,.175);box-shadow:0 6px 12px rgba(0,0,0,.175)}

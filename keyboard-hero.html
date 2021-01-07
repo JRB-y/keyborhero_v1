@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/3wa.css">
+    <link rel="shortcut icon" href="">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
+    <title>Keyboard Hero</title>
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-40931321-8', 'auto');
+		ga('send', 'pageview');
+	</script>
+	<script type="text/javascript" id="hs-script-loader" async defer src="js/7428266.js"></script>
+</head>
+<body>
+    <header id="header" class="nav-fixed">
+        <div class="nav-wrapper">
+            <div class="container">
+                <nav>
+                    <a href="/" class="logo3wa"><img src="" alt="3W Academy"></a>
+                    <ul>
+                        <li><a href="/abonnement">Premium</a></li>
+                        <li><a href="/keyboard-hero" rel="nofollow"><i class="fa fa-keyboard-o"></i>Keyboard Hero</a></li>
+                        <li><a href="https://3wa.fr">École 3WA</a></li>
+    					<li><a href="https://forum.3wa.fr/" rel="nofollow">Communauté</a></li>
+    					
+    					<li><a href="/login" rel="nofollow">Se connecter</a></li>
+    					<li><a class="button" href="/register" rel="nofollow">S'inscrire</a></li>
+    					
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <div id="ttt-root">
+        <div id="play-box">
+            <img class="ingame-logo" class="logo" src="img/logo-mono-white.svg" alt="">
+        </div>
+        <div id="control-panel">
+            <div id="start-overlay">
+                    <div class="container">
+                        
+                    <img class="logo max-mrg" src="img/logo-white.svg" alt="">
+                    <p class="txt">Bienvenue dans Keyboard Hero, ici votre objectif est d'écrire un ensemble de 30 mots en faisant le minimum d'erreur !</p>
+                    <p class="highlight">Avant de commencer, choississez le dictionnaire avec lequel vous voulez jouer.</p>
+                    <ul class="js-levelPicker">
+                        <li data-level="1">
+                            <div class="card">
+                                <div class="illustration">
+                                    <img src="img/cards/projets.png" alt="french2">
+                                </div>
+                                <div class="description">
+                                    <h3>
+                                        <a class="menu_btn" data-level="1">Français 1000 mots</a>
+                                    </h3>
+                                </div>
+                            </div>
+                        </li>
+                        <li data-level="6">
+                            <div class="card">
+                                <div class="illustration">
+                                    <img src="img/cards/projets.png" alt="english">
+                                </div>
+                                <div class="description">
+                                    <h3>
+                                        <a class="menu_btn" data-level="6">Anglais 1000 mots</a>
+                                    </h3>
+                                </div>
+                            </div>
+                        </li>
+                        <li data-level="2">
+                            <div class="card">
+                                <div class="illustration">
+                                    <img src="img/cards/html.png" alt="HTML">
+                                </div>
+                                <div class="description">
+                                    <h3>
+                                        <a class="menu_btn" data-level="2">HTML</a>
+                                    </h3>
+                                </div>
+                            </div>
+                        </li>
+                        <li data-level="3">
+                            <div class="card">
+                                <div class="illustration">
+                                    <img src="img/cards/css.png" alt="CSS">
+                                </div>
+                                <div class="description">
+                                    <h3>
+                                        <a class="menu_btn" data-level="3">CSS</a>
+                                    </h3>
+                                </div>
+                            </div>
+                        </li>
+                        <li data-level="4">
+                            <div class="card">
+                                <div class="illustration">
+                                    <img src="img/cards/html.png" alt="HTML">
+                                </div>
+                                <div class="description">
+                                    <h3>
+                                        <a class="menu_btn" data-level="4">PHP</a>
+                                    </h3>
+                                </div>
+                            </div>
+                        </li>
+                        <li data-level="5">
+                            <div class="card">
+                                <div class="illustration">
+                                    <img src="img/cards/javascript.png" alt="HTML">
+                                </div>
+                                <div class="description">
+                                    <h3>
+                                        <a class="menu_btn" data-level="5">JavaScript</a>
+                                    </h3>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <button class="start_btn start-button">Commencer !</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="clear-message">
+            <div class="container">
+                <h2 class="clear-message-text">clear !</h2>
+                Votre score : <span class="scoreLbl">0000</span>
+                <ul class="ladderboard">
+                </ul>
+                <a class="again-button">Recommencer</a>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui-1.8.18.custom.min.js"></script>
+<script type="text/javascript" src="js/DPTP.js"></script>
+<script type="text/javascript" src="js/typingdna.js"></script>
+<script type="text/javascript" src="js/word.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+
+<script type="text/javascript">
+    var isMobile = (/iphone|ipod|android|blackberry|mini|windows\sce|palm/i.test(navigator.userAgent.toLowerCase()));
+    if(isMobile){
+        $(function(){
+            $('<div/>').text('Sorry! You need a PC to play this game.')
+                    .attr('id', 'no-support-message')
+                    .appendTo('body');
+        })
+    }
+    $('.dropdown.user-dropdown').click(function()
+    {
+        var left = $('.profile-link.dropdown-toggle').offset().left;
+        $('.dropdown-menu').css('left', left - 110);
+        $('.dropdown-menu').css('right', left);
+        $('.dropdown-menu').toggle();
+    });
+</script>
+</html>
