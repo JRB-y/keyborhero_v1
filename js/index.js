@@ -13,7 +13,7 @@ var game = {
     hof:undefined,
     score: 0,
     currentLevel : -1,
-    nbWord :30,
+    nbWord :3,
     error : 0,
     startTime : 0,
     spawnBlock: 750,
@@ -284,6 +284,7 @@ var settings = {
                     command = 'init';
                 }
                 var panel = $(this);
+ 
                 /* HANDS */
                 switch(command){
                     case 'init':
@@ -325,6 +326,7 @@ var settings = {
                 }
 
                 var block = $(this);
+   
                 switch(command){
                     case 'init':
                         block.addClass('block');
@@ -558,6 +560,7 @@ var settings = {
                 var panel = $(this);
                 switch(command){
                     case 'init':
+                     
                         panel.addClass('word-panel');
                         for(var i=0;i<3;i++){
                             $('<span/>').addClass('square')
@@ -578,6 +581,7 @@ var settings = {
                         }
                         return panel;
                     case 'loadWord':
+                      
 
                         var char = $('span.char', panel);
                         var word = options?options.word:null;
@@ -591,9 +595,10 @@ var settings = {
                             if(!word) return panel;
                         }
 
-
+                        console.log('test');
                         /**************************** TDNA *******************************/
                         if( game.currentWord && game.currentWord.length > 0 ){
+                           
                             let tdnaData = {
                                 word : game.currentWord,
                                 pattern : tdna.getTypingPattern({type:2})//DPTP_Dj
@@ -607,11 +612,15 @@ var settings = {
 
 
                         var remainWord = panel.data('remainWord');
+                        
                         panel.data('remainWord', --remainWord);
                         $('.remain-count', panel).text('Mots restants : ' + remainWord + ' ');
 
                         if(remainWord <= 0 && !game.ended ){
-                        
+ 
+                        //console.log(reamainWord);
+                        //console.log(game.ended);
+
                             /* ENDING FINISH SCREEN */  
                             // let myResult ;
                             //     if ((navigator.onLine) && (restoreData('userTry')!= null)){
@@ -669,7 +678,8 @@ var settings = {
                 }
                 var box = $(this);
                 switch(command){
-                    case 'init':$
+                    case 'init':
+                   
                         game.startTime = new Date();
                         box.addClass('play-box')
                             .data('data', options.data);
@@ -757,11 +767,14 @@ var settings = {
                     case 'refresh':
                         return box;
                     case 'start': /* GAME START */
+                   
                         $('.line-inner', box).removeAttr('style');
                         $('.block').remove();
                         var load = function(){
                             var word = (function(){
+                                
                                 while(true){
+                             
                                     var word = box.data('data').next( level_infos[ game.currentLevel ] );
                                     if( word ){
                                         if(word.match(/\s/)) continue;
@@ -943,7 +956,41 @@ var settings = {
                 $('.clear-message').show();
                 $(".scoreLbl").text( Math.floor( game.score ) );
                 $(".again-button").click(function(){
-                    location.reload();
+                    
+                  
+                   
+
+                //     location.reload('#');
+                //         if (navigator.onLine)
+                //    location.reload();
+                  
+              
+                    $('#ttt-root').trigger('gameClear');
+                    $('#play-box').playBox('stop');
+                    $('#play-box').playBox('refresh');
+                    $('.clear-message').hide();
+                    $("#start-overlay").show();
+                    $('.start-button').show();
+                    $('.block').hide();
+                    $('.stop-button').hide();
+                    $('.remain-count').empty();
+                    tdna.reset();
+                   $('div#ttt-root #play-box').handPanel('refresh');
+   
+                     $('.block').stop().remove();
+                   $('.hand-panel').handPanel('refresh');
+                $('#play-box').playBox('refresh');
+          //  $('.play-box-inner div').pressedBox('refresh');
+                
+                  $('.word-panel').wordPanel('init');
+                  $('.word-panel').wordPanel('hit');
+                  $('.word-panel').wordPanel('refresh');
+                   // console.log('log remain word ', remainWord);
+                  location.hash()
+                   // $('.remain-count').data('remainWord',game.nbWord)
+                      // console.log($('.remain-count').data('remainword'));
+                  
+                  //  remainWord = panel.data('remainWord');
                 });
             }
         }
@@ -971,7 +1018,7 @@ $(function(){
         });
     var controlPanel = $('div#control-panel', root).controlPanel();
     var resultBox = $('.result-box', controlPanel);
-
+    
     var playBox = $('#play-box', root).playBox({
         data: Word,
         hit:function(){
@@ -998,6 +1045,7 @@ $(function(){
     /* START GAME */
     var startButton = $('.start-button', controlPanel).click(function(){
         if( game.currentLevel > -1 ){
+           
             playBox.playBox('start');
 
             $("#start-overlay").hide();
@@ -1019,7 +1067,7 @@ $(function(){
     if(restoreData('retry')){
         saveData('retry', false);
     }
-
+   
     setInterval(function(){     /********check LocalStorege and send to DataBase if exist */
         let myResult ;
         if ((navigator.onLine) && (restoreData('userTry')!= null)){
