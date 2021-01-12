@@ -4,6 +4,8 @@ const assets = [
     "js/jquery-1.7.1.min.js",
     "js/jquery-ui-1.8.18.custom.min.js",
     "js/DPTP.js",
+    "js/caches.js",
+    "js/7428266.js",
     "js/typingdna.js",
     "js/word.js",
     "js/index.js",
