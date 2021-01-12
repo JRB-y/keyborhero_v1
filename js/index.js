@@ -13,7 +13,7 @@ var game = {
     hof:undefined,
     score: 0,
     currentLevel : -1,
-    nbWord :3,
+    nbWord :30,
     error : 0,
     startTime : 0,
     spawnBlock: 750,
@@ -595,7 +595,7 @@ var settings = {
                             if(!word) return panel;
                         }
 
-                        console.log('test');
+           
                         /**************************** TDNA *******************************/
                         if( game.currentWord && game.currentWord.length > 0 ){
                            
@@ -618,16 +618,7 @@ var settings = {
 
                         if(remainWord <= 0 && !game.ended ){
  
-                        //console.log(reamainWord);
-                        //console.log(game.ended);
-
-                            /* ENDING FINISH SCREEN */  
-                            // let myResult ;
-                            //     if ((navigator.onLine) && (restoreData('userTry')!= null)){
-                            //         myResult = restoreData ('userTry');
-                            //         this.sendGameScore(myResult[0], myResult[1]);
-                            //         localStorage.removeItem('userTry');
-                            //     } 
+                  
                             $('#ttt-root').trigger('gameClear');                     
                             game.ended = true;
                             game.endTime = new Date();
@@ -956,41 +947,7 @@ var settings = {
                 $('.clear-message').show();
                 $(".scoreLbl").text( Math.floor( game.score ) );
                 $(".again-button").click(function(){
-                    
-                  
-                   
-
-                //     location.reload('#');
-                //         if (navigator.onLine)
-                //    location.reload();
-                  
-              
-                    $('#ttt-root').trigger('gameClear');
-                    $('#play-box').playBox('stop');
-                    $('#play-box').playBox('refresh');
-                    $('.clear-message').hide();
-                    $("#start-overlay").show();
-                    $('.start-button').show();
-                    $('.block').hide();
-                    $('.stop-button').hide();
-                    $('.remain-count').empty();
-                    tdna.reset();
-                   $('div#ttt-root #play-box').handPanel('refresh');
-   
-                     $('.block').stop().remove();
-                   $('.hand-panel').handPanel('refresh');
-                $('#play-box').playBox('refresh');
-          //  $('.play-box-inner div').pressedBox('refresh');
-                
-                  $('.word-panel').wordPanel('init');
-                  $('.word-panel').wordPanel('hit');
-                  $('.word-panel').wordPanel('refresh');
-                   // console.log('log remain word ', remainWord);
-                  location.hash()
-                   // $('.remain-count').data('remainWord',game.nbWord)
-                      // console.log($('.remain-count').data('remainword'));
-                  
-                  //  remainWord = panel.data('remainWord');
+                 location.reload();
                 });
             }
         }
@@ -1001,6 +958,8 @@ var settings = {
 })(jQuery);
 
 $(function(){
+
+
     var root = $('div#ttt-root').live('gameover', function(){
         stopButton.trigger('click');
     })
