@@ -18,12 +18,28 @@ const assets = [
     "img/logo-mono-white.svg",
     "img/logo-white.svg",
     "img/mains.svg",
+    
 ]
 
 
 // Call install Event
 self.addEventListener('install',(event)=> {
-   
+   if(navigator.onLine)
+   {
+    event.waitUntil(
+      caches.keys().then(keyboardcache => {
+          return Promise.all(
+              keyboardcache.map(cache => {
+                  if(cache != keyboardcache) {
+                  
+                      return caches.delete(cache);
+                  }
+              })
+          )
+      })
+    )
+    
+   }
   event.waitUntil(
     caches.open(keyboardcache)
       .then((cache)=> {
