@@ -12,6 +12,7 @@ const assets = [
     "css/3wa.css",
     "css/base.css",
     "css/index.css",
+    "css/inconsolata.css",
     "img/cards/css.png",
     "img/cards/html.png",
     "img/cards/javascript.png",
