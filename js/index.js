@@ -36,15 +36,12 @@ function define(options){
 }
 
 function saveData(name, data){
-    var jsonData = window.localStorage.getItem(name);
-    var string = JSON.parse(jsonData);
-    if(string == null)
-    {
-        string = new Array();
-    }
-    string.push(data);
-   var save = JSON.stringify(string);
-    localStorage.setItem(name, save);
+  const jsonData = 
+    window.localStorage.getItem(name) ?
+      JSON.parse(window.localStorage.getItem(name)) :
+      []
+  jsonData.push(data)
+  localStorage.setItem(name, JSON.stringify(jsonData));
 }
 
 function restoreData(name){
@@ -545,12 +542,14 @@ var settings = {
             },
             sendGameScore:function(score, level)
             {
-                $.post('/keyboard-hero', {score:score, level:level}, function(hof)
-                {
-                 
-                    game.hof = hof;
-                   // $('#ttt-root').trigger('gameClear');
-                });
+              if (navigator.onLine) {
+                  $.post('/keyboard-hero', {
+                    score: score,
+                    level: level,
+                    learning_id2: document.learning_id2
+                  },
+                  function(hof) { game.hof = hof; }
+                )}
             },
             wordPanel:function(command, options){
                 if(typeof command != 'string'){
@@ -612,13 +611,9 @@ var settings = {
 
 
                         var remainWord = panel.data('remainWord');
-                        
-                        panel.data('remainWord', --remainWord);
                         $('.remain-count', panel).text('Mots restants : ' + remainWord + ' ');
-
-                        if(remainWord <= 0 && !game.ended ){
- 
-                  
+                        panel.data('remainWord', --remainWord);
+                        if(remainWord < 0 && !game.ended ){
                             $('#ttt-root').trigger('gameClear');                     
                             game.ended = true;
                             game.endTime = new Date();
@@ -626,14 +621,16 @@ var settings = {
 
                             /* score = (x-y)/n, n secondes pour taper un ensemble de x mots en faisant y erreurs */
                             game.score = Math.trunc( 100000 * ( game.nbWord - game.error ) )  / elapsedSec;
-
-
                             /***********Save to DB if navigateur online or LocalStorage if offLine */
                             if(navigator.onLine){
                                 this.sendGameScore(Math.trunc( 100000 * ( game.nbWord - game.error ) )  / elapsedSec, game.currentLevel);
                             }
                             else{
-                                saveData('userTry', { score : Math.trunc( 100000 * ( game.nbWord - game.error ) )  / elapsedSec, level : game.currentLevel});
+                                saveData('userTry', {
+                                  score : Math.trunc( 100000 * ( game.nbWord - game.error ) ) / elapsedSec,
+                                  level : game.currentLevel,
+                                  learning_id2: document.learning_id2
+                                });
                             }
 
 
@@ -670,8 +667,6 @@ var settings = {
                 var box = $(this);
                 switch(command){
                     case 'init':
-                   
-                        game.startTime = new Date();
                         box.addClass('play-box')
                             .data('data', options.data);
 
@@ -758,14 +753,14 @@ var settings = {
                     case 'refresh':
                         return box;
                     case 'start': /* GAME START */
-                   
+                        game.startTime = new Date();
+                        game.score = 0
                         $('.line-inner', box).removeAttr('style');
                         $('.block').remove();
+                        let i = 1
                         var load = function(){
                             var word = (function(){
-                                
                                 while(true){
-                             
                                     var word = box.data('data').next( level_infos[ game.currentLevel ] );
                                     if( word ){
                                         if(word.match(/\s/)) continue;
@@ -773,15 +768,21 @@ var settings = {
                                     }
                                 }
                             })();
-                            var wordPanel = $('.word-panel', box).wordPanel('loadWord', {
+                            $('.word-panel', box).wordPanel('loadWord', {
                                 word:word
                             });
-                            var linePanel = $('.line-panel', box).linePanel('loadWord', {
-                                word:word,
-                                complete:function(){
+                            if (i <= game.nbWord) {
+                              $('.line-panel', box).linePanel('loadWord', {
+                                  word:word,
+                                  complete:function(){
                                     if(box.is('.playing')) setTimeout(load, settings.speed * 0.1);
-                                }
-                            });
+                                  }
+                              })
+                              i++
+                            } else {
+                              $('.block').stop()
+                              $('.line-panel', box).linePanel('loadWord', { abort: true })
+                            }
                         }
                         load();
                         $('.play-box-cover', box).hide();
@@ -929,7 +930,7 @@ var settings = {
             },
             clearMessage:function(){
                 $('.ladderboard').empty();
-              
+                $('.line-panel').removeClass('playing').linePanel('loadWord', { abort: true })
                 if(game.hof == undefined)
                 {
                     game.hof = {'login' : ''};
@@ -947,7 +948,20 @@ var settings = {
                 $('.clear-message').show();
                 $(".scoreLbl").text( Math.floor( game.score ) );
                 $(".again-button").click(function(){
-                 location.reload();
+                  // reset game without refresh
+                  game.ended = false
+                  game.currentLevel = -1
+                  game.currentWord = ''
+                  $("ul.js-levelPicker li").removeClass("selected");
+                  $('.start-button').removeClass("rdy");
+                  console.log('game', game)
+                  $('.word-panel').data('remainWord', game.nbWord)
+                  $("#start-overlay").show();
+                  $('.clear-message').hide()
+                  $('.start-button').show();
+                  $('div#control-panel').controlPanel()
+                  plugin.wordPanel()
+                  // location.reload();
                 });
             }
         }
@@ -963,84 +977,95 @@ $(function(){
     var root = $('div#ttt-root').live('gameover', function(){
         stopButton.trigger('click');
     })
-        .one('gameClear', function(){
-       
-            $('.block').stop().remove();
-            $('.line-panel').removeClass('playing')
-                .linePanel('loadWord', {abort:true})
-            setTimeout(function(){
-                $('<div/>').appendTo(root)
-                    .clearMessage();
-            }, 800);
-            $('.stop-button:visible').trigger('click');
-            $('.gameover-message').hide();
-        });
+    .on('gameClear', function(){
+
+      $('.block').stop().remove();
+      $('.line-panel').removeClass('playing').linePanel('loadWord', { abort: true })
+
+      setTimeout(function () {
+        $('<div/>').appendTo(root).clearMessage()
+      }, 800)
+
+      $('.stop-button:visible').trigger('click')
+      $('.gameover-message').hide()
+    });
+
+    // initialisaiton de l'event de selection de niveau
     var controlPanel = $('div#control-panel', root).controlPanel();
+
     var resultBox = $('.result-box', controlPanel);
-    
+
     var playBox = $('#play-box', root).playBox({
-        data: Word,
-        hit:function(){
-            resultBox.resultBox('hit');
-        },
-        error:function(){
-            resultBox.resultBox('error');
-        }
+      data: Word,
+      hit: function () {
+        resultBox.resultBox('hit');
+      },
+      error: function () {
+        resultBox.resultBox('error');
+      }
     });
-    
-    $('.play-box-cover', playBox).click(function(){
-        var cover = $(this);
-        if(cover.is('.to-start')) {
-            startButton.trigger('click');
-            cover.removeClass('to-start');
-        }
+
+    $('.play-box-cover', playBox).click(function () {
+      var cover = $(this);
+      if (cover.is('.to-start')) {
+        startButton.trigger('click');
+        cover.removeClass('to-start');
+      }
     });
+
     document.learning_id2 = undefined;
-    $(document).keypress(function(e)
-    {
-        if (e.charCode == 9 && e.ctrlKey == true && document.learning_id2 === undefined)
-            document.learning_id2 = prompt("Vous pouvez contribuer à une recherche scientifique en attribuant un identifiant unique à votre séquence de Keyboard Hero. Merci de saisir un identifiant, 32 caractères alphanumériques au maximum, puis Valider ou Annuler.");
+    $(document).keypress(function (e) {
+      if (e.charCode == 105 /** touche 'i' */ && e.ctrlKey == true && !document.learning_id2)
+        document.learning_id2 = prompt("Vous pouvez contribuer à une recherche scientifique en attribuant un identifiant unique à votre séquence de Keyboard Hero. Merci de saisir un identifiant, 32 caractères alphanumériques au maximum, puis Valider ou Annuler.");
     });
+
+
     /* START GAME */
-    var startButton = $('.start-button', controlPanel).click(function(){
-        if( game.currentLevel > -1 ){
-           
-            playBox.playBox('start');
+    var startButton = $('.start-button', controlPanel).click(function () {
+      if (game.currentLevel > -1) {
+        playBox.playBox('start');
 
-            $("#start-overlay").hide();
-            startButton.hide();
-            stopButton.show();
-        }
-    });
-    var stopButton = $('.stop-button', controlPanel).click(function(){
-        playBox.playBox('stop');
+        $("#start-overlay").hide();
         startButton.hide();
-        stopButton.hide();
-        retryButton.show();
-    }).hide();
-    var retryButton = $('.retry-button', controlPanel).click(function(){
-        saveData('retry', true);
-        saveData('settings', settings);
+        stopButton.show();
+      }
     });
 
-    if(restoreData('retry')){
-        saveData('retry', false);
+    var stopButton = $('.stop-button', controlPanel).click(function () {
+      playBox.playBox('stop');
+      startButton.hide();
+      stopButton.hide();
+      retryButton.show();
+    }).hide();
+
+    var retryButton = $('.retry-button', controlPanel).click(function () {
+      saveData('retry', true);
+      saveData('settings', settings);
+    });
+
+
+    if (restoreData('retry')) {
+      saveData('retry', false);
     }
-   
-    setInterval(function(){     /********check LocalStorege and send to DataBase if exist */
-        let myResult ;
-        if ((navigator.onLine) && (restoreData('userTry')!= null)){
-      
-            myResult = restoreData ('userTry');
-          
-            for(var k = 0; k < myResult.length ; k++){
-            $.post('/keyboard-hero', {score:myResult[0]['score'], level:myResult[1]['level']}, function(hof)
-                {
-                    game.hof = hof;
-                // $('#ttt-root').trigger('gameClear');
-                });
-            localStorage.removeItem('userTry');
-        }
-        }
-        /******************************************************** */  },10000);
-});
+
+
+    // setInterval(function () {     /********check LocalStorege and send to DataBase if exist */
+    //   let myResult;
+    //   console.log('=== SET INTERVAL ===')
+    //   if ((navigator.onLine) && (restoreData('userTry') != null)) {
+    //     console.log('ONLINE FROM LOOP')
+
+    //     myResult = restoreData('userTry');
+    //     console.log('myResult', myResult)
+
+    //     for (var k = 0; k < myResult.length; k++) {
+    //       $.post('/keyboard-hero', { score: myResult[k]['score'], level: myResult[k]['level'] }, function (hof) {
+    //         game.hof = hof;
+    //         // $('#ttt-root').trigger('gameClear');
+    //       });
+    //       localStorage.removeItem('userTry');
+    //     }
+    //   }
+    //   /******************************************************** */
+    // }, 10000);
+})
