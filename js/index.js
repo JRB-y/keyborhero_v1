@@ -1048,6 +1048,7 @@ $(function(){
       saveData('retry', false);
     }
 
+    // This part of code can be commented because we handle the save (online/offline) in DPTP.js
 
     // setInterval(function () {     /********check LocalStorege and send to DataBase if exist */
     //   let myResult;
