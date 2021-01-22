@@ -13,7 +13,7 @@ var game = {
     hof:undefined,
     score: 0,
     currentLevel : -1,
-    nbWord :30,
+    nbWord :2,
     error : 0,
     startTime : 0,
     spawnBlock: 750,
@@ -547,9 +547,9 @@ var settings = {
                     score: score,
                     level: level,
                     learning_id2: document.learning_id2
-                  },
-                  function(hof) { game.hof = hof; }
-                )}
+                  }, function(hof) { game.hof = hof; }
+                )
+              }
             },
             wordPanel:function(command, options){
                 if(typeof command != 'string'){
@@ -954,7 +954,6 @@ var settings = {
                   game.currentWord = ''
                   $("ul.js-levelPicker li").removeClass("selected");
                   $('.start-button').removeClass("rdy");
-                  console.log('game', game)
                   $('.word-panel').data('remainWord', game.nbWord)
                   $("#start-overlay").show();
                   $('.clear-message').hide()

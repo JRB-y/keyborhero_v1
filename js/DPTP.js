@@ -11,22 +11,20 @@ if (navigator.onLine) {
 async function updateOnlineStatus() {
   if (navigator.onLine) {
     let stored = JSON.parse(localStorage.getItem('DPTP_offline_storage'));
+
     if (stored && stored.length) {
-      while (stored.length > 0 && navigator.onLine) {
-        stored.shift()
-        let res = await sendJSON(stored.shift());
+      while (stored.length !== 0) {
+        const shifted = stored.shift()
+        const res = await sendJSON(shifted)
+
         if (res === false) {
-          stored.unshift(res);
-          setTimeout(() => {
-            updateOnlineStatus();
-          }, 2000);
-          break;
+          stored.unshift(res)
         }
       }
       localStorage.setItem('DPTP_offline_storage', JSON.stringify(stored));
     }
 
-    let userTry = localStorage.getItem('userTry')
+    let userTry = JSON.parse(localStorage.getItem('userTry'))
     if (userTry && userTry.length) {
       for (var k = 0; k < userTry.length; k++) {
         $.post('/keyboard-hero', { score: userTry[k]['score'], level: userTry[k]['level'], learning_id2: document.learning_id2 }, function (hof) {
@@ -48,15 +46,12 @@ function DPTP(language, word, pattern) {
   navigator.onLine ? sendJSON(patternJson) : storeJSON(patternJson)
 }
 function storeJSON(str) {
-  var stored = localStorage.getItem('DPTP_offline_storage');
-  if (stored) {
-    stored = JSON.parse(stored);
-    stored.push(str);
-  }
-  else
-    stored = [str];
+  let stored = JSON.parse(localStorage.getItem('DPTP_offline_storage'))
+  if (!stored) stored = []
+  stored.push(JSON.parse(str))
   localStorage.setItem('DPTP_offline_storage', JSON.stringify(stored));
 }
+
 function sendJSON(str) {
   return new Promise((resolve, reject) => {
     var xmlhttp;
