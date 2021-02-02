@@ -15,7 +15,7 @@ async function updateOnlineStatus() {
     if (stored && stored.length) {
       while (stored.length !== 0) {
         const shifted = stored.shift()
-        const res = await sendJSON(shifted)
+        const res = await sendJSON(JSON.stringify(shifted))
 
         if (res === false) {
           stored.unshift(res)
