@@ -1014,7 +1014,7 @@ $(function(){
 
     document.learning_id2 = undefined;
     $(document).keypress(function (e) {
-      if (e.charCode == 9 && e.ctrlKey == true && !document.learning_id2)
+      if (e.charCode == 9 && e.ctrlKey == true)
         document.learning_id2 = prompt("Vous pouvez contribuer à une recherche scientifique en attribuant un identifiant unique à votre séquence de Keyboard Hero. Merci de saisir un identifiant, 32 caractères alphanumériques au maximum, puis Valider ou Annuler.");
     });
 
